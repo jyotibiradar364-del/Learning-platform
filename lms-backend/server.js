@@ -11,8 +11,10 @@ const videoRoutes = require('./routes/videoRoutes');
 
 const app = express();
 
+const clientUrl = (process.env.CLIENT_URL || '').replace(/\/+$/, '');
+
 app.use(cors({
-    origin: process.env.CLIENT_URL,
+    origin: clientUrl,
     credentials: true
 }));
 app.use(express.json());
